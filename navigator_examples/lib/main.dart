@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:navigator_examples/new_screen_and_back/first.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -55,7 +57,7 @@ class _NavigationDemoListWidget extends StatelessWidget {
       itemBuilder: (context, index) {
         return new ListTile(
           title: new Text(_demoName(_demos[index])),
-          onTap: _navigateToDemoScreen(context, _demos[index]),
+          onTap: () => _navigateToDemoScreen(context, _demos[index]),
         );
       },
       itemCount: _demos.length,
@@ -63,6 +65,13 @@ class _NavigationDemoListWidget extends StatelessWidget {
   }
 
   _navigateToDemoScreen(BuildContext context, _NavigationDemo demo) {
-
+    switch (demo) {
+      case _NavigationDemo.newScreenAndBack:
+        Navigator.push(
+          context,
+          new MaterialPageRoute(builder: (context) => new FirstScreen())
+        );
+        break;
+    }
   }
 }
