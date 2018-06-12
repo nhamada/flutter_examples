@@ -7,6 +7,8 @@ import 'package:navigator_examples/return_data/back_screen.dart';
 import 'package:navigator_examples/named_route/source.dart';
 import 'package:navigator_examples/named_route/destination.dart';
 
+import 'package:navigator_examples/animations/image_screen.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -49,6 +51,7 @@ enum _NavigationDemo {
   sendData,
   returnData,
   namedRoutes,
+  animations,
 }
 
 String _demoName(_NavigationDemo demo) {
@@ -61,6 +64,8 @@ String _demoName(_NavigationDemo demo) {
       return 'Return data from a screen';
     case _NavigationDemo.namedRoutes:
       return 'Navigate with named routes';
+    case _NavigationDemo.animations:
+      return 'Animating a Widget across screens';
     default:
       return 'Unknown';
   }
@@ -73,6 +78,7 @@ class _NavigationDemoListWidget extends StatelessWidget {
     _NavigationDemo.sendData,
     _NavigationDemo.returnData,
     _NavigationDemo.namedRoutes,
+    _NavigationDemo.animations,
   ];
 
   @override
@@ -110,6 +116,12 @@ class _NavigationDemoListWidget extends StatelessWidget {
         break;
       case _NavigationDemo.namedRoutes:
         Navigator.pushNamed(context, '/source');
+        break;
+      case _NavigationDemo.animations:
+        Navigator.push(
+          context,
+          new MaterialPageRoute(builder: (context) => new ImageScreen())
+        );
         break;
     }
   }
