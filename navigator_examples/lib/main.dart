@@ -4,6 +4,9 @@ import 'package:navigator_examples/new_screen_and_back/first.dart';
 import 'package:navigator_examples/send_data/list_screen.dart';
 import 'package:navigator_examples/return_data/back_screen.dart';
 
+import 'package:navigator_examples/named_route/source.dart';
+import 'package:navigator_examples/named_route/destination.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,7 +18,12 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new NavigationDemoHomePage(title: 'Navigation Demo'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => new NavigationDemoHomePage(title: 'Navigation Demo'),
+        '/source': (context) => new RoutingSourceScreen(),
+        '/destination': (context) => new RoutingDestinationScreen(),
+      },
     );
   }
 }
@@ -40,6 +48,7 @@ enum _NavigationDemo {
   newScreenAndBack,
   sendData,
   returnData,
+  namedRoutes,
 }
 
 String _demoName(_NavigationDemo demo) {
@@ -50,6 +59,8 @@ String _demoName(_NavigationDemo demo) {
       return 'Send data to a new screen';
     case _NavigationDemo.returnData:
       return 'Return data from a screen';
+    case _NavigationDemo.namedRoutes:
+      return 'Navigate with named routes';
     default:
       return 'Unknown';
   }
@@ -61,6 +72,7 @@ class _NavigationDemoListWidget extends StatelessWidget {
     _NavigationDemo.newScreenAndBack,
     _NavigationDemo.sendData,
     _NavigationDemo.returnData,
+    _NavigationDemo.namedRoutes,
   ];
 
   @override
@@ -95,6 +107,9 @@ class _NavigationDemoListWidget extends StatelessWidget {
           context,
           new MaterialPageRoute(builder: (context) => new BackScreen())
         );
+        break;
+      case _NavigationDemo.namedRoutes:
+        Navigator.pushNamed(context, '/source');
         break;
     }
   }
