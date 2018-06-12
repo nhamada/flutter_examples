@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:navigator_examples/new_screen_and_back/first.dart';
 import 'package:navigator_examples/send_data/list_screen.dart';
+import 'package:navigator_examples/return_data/back_screen.dart';
 
 void main() => runApp(new MyApp());
 
@@ -38,16 +39,19 @@ class NavigationDemoHomePage extends StatelessWidget {
 enum _NavigationDemo {
   newScreenAndBack,
   sendData,
+  returnData,
 }
 
 String _demoName(_NavigationDemo demo) {
   switch (demo) {
     case _NavigationDemo.newScreenAndBack:
-      return "Navigate to a new screen and back";
+      return 'Navigate to a new screen and back';
     case _NavigationDemo.sendData:
-      return "Send data to a new screen";
+      return 'Send data to a new screen';
+    case _NavigationDemo.returnData:
+      return 'Return data from a screen';
     default:
-      return "Unknown";
+      return 'Unknown';
   }
 }
 
@@ -56,6 +60,7 @@ class _NavigationDemoListWidget extends StatelessWidget {
   final List<_NavigationDemo> _demos = [
     _NavigationDemo.newScreenAndBack,
     _NavigationDemo.sendData,
+    _NavigationDemo.returnData,
   ];
 
   @override
@@ -83,6 +88,12 @@ class _NavigationDemoListWidget extends StatelessWidget {
         Navigator.push(
           context,
           new MaterialPageRoute(builder: (context) => new TodoListScreen())
+        );
+        break;
+      case _NavigationDemo.returnData:
+        Navigator.push(
+          context,
+          new MaterialPageRoute(builder: (context) => new BackScreen())
         );
         break;
     }
