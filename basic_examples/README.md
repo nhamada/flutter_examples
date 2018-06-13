@@ -1,8 +1,7 @@
 # basic_examples
+Flutter example codes for design basics.
 
-A new Flutter project.
+Refs: [Cookbook](https://flutter.io/cookbook/)
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+- [Working with Tabs](https://flutter.io/cookbook/design/tabs/)
+  - [Code](./lib/tabs)
