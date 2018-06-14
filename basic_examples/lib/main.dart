@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:basic_examples/tabs/tabs.dart';
 import 'package:basic_examples/drawer/drawer.dart';
+import 'package:basic_examples/ui_orientation/ui_orientation.dart';
 
 void main() => runApp(new MyApp());
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
 enum _BasicDemoItem {
   tabs,
   drawer,
+  uiOrientation,
 }
 
 String _demoPageName(_BasicDemoItem item) {
@@ -30,6 +32,8 @@ String _demoPageName(_BasicDemoItem item) {
       return 'Working with Tabs';
     case _BasicDemoItem.drawer:
       return 'Add a Drawer to a screen';
+    case _BasicDemoItem.uiOrientation:
+      return 'Updating the UI based on orientation';
   }
   return '';
 }
@@ -40,6 +44,8 @@ Widget _demoPage(_BasicDemoItem item) {
       return new ExampleTabScreen();
     case _BasicDemoItem.drawer:
       return new ExampleDrawerScreen();
+    case _BasicDemoItem.uiOrientation:
+      return new UIOrientationScreen();
   }
   return null;
 }
@@ -50,6 +56,7 @@ class DemoListPage extends StatelessWidget {
   final List<_BasicDemoItem> examples = [
     _BasicDemoItem.tabs,
     _BasicDemoItem.drawer,
+    _BasicDemoItem.uiOrientation,
   ];
 
   DemoListPage({Key key, this.title}) : super(key: key);
