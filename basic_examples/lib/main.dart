@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:basic_examples/tabs/tabs.dart';
+import 'package:basic_examples/drawer/drawer.dart';
 
 void main() => runApp(new MyApp());
 
@@ -20,12 +21,15 @@ class MyApp extends StatelessWidget {
 
 enum _BasicDemoItem {
   tabs,
+  drawer,
 }
 
 String _demoPageName(_BasicDemoItem item) {
   switch (item) {
     case _BasicDemoItem.tabs:
       return 'Working with Tabs';
+    case _BasicDemoItem.drawer:
+      return 'Add a Drawer to a screen';
   }
   return '';
 }
@@ -34,6 +38,8 @@ Widget _demoPage(_BasicDemoItem item) {
   switch (item) {
     case _BasicDemoItem.tabs:
       return new ExampleTabScreen();
+    case _BasicDemoItem.drawer:
+      return new ExampleDrawerScreen();
   }
   return null;
 }
@@ -43,6 +49,7 @@ class DemoListPage extends StatelessWidget {
 
   final List<_BasicDemoItem> examples = [
     _BasicDemoItem.tabs,
+    _BasicDemoItem.drawer,
   ];
 
   DemoListPage({Key key, this.title}) : super(key: key);
