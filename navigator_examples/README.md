@@ -13,3 +13,5 @@ Refs: [Cookbook](https://flutter.io/cookbook/)
   - [Code](./lib/named_route)
 - [Animating a Widget across screens](https://flutter.io/cookbook/navigation/hero-animations/)
   - [Code](./lib/animations)
+- Present new screen modally
+  - [Code](./lib/modal)

@@ -9,6 +9,8 @@ import 'package:navigator_examples/named_route/destination.dart';
 
 import 'package:navigator_examples/animations/image_screen.dart';
 
+import 'package:navigator_examples/modal/modal_source.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -52,6 +54,7 @@ enum _NavigationDemo {
   returnData,
   namedRoutes,
   animations,
+  presentModally,
 }
 
 String _demoName(_NavigationDemo demo) {
@@ -66,6 +69,8 @@ String _demoName(_NavigationDemo demo) {
       return 'Navigate with named routes';
     case _NavigationDemo.animations:
       return 'Animating a Widget across screens';
+    case _NavigationDemo.presentModally:
+      return 'Present new screen modally';
     default:
       return 'Unknown';
   }
@@ -79,6 +84,7 @@ class _NavigationDemoListWidget extends StatelessWidget {
     _NavigationDemo.returnData,
     _NavigationDemo.namedRoutes,
     _NavigationDemo.animations,
+    _NavigationDemo.presentModally,
   ];
 
   @override
@@ -121,6 +127,12 @@ class _NavigationDemoListWidget extends StatelessWidget {
         Navigator.push(
           context,
           new MaterialPageRoute(builder: (context) => new ImageScreen())
+        );
+        break;
+      case _NavigationDemo.presentModally:
+        Navigator.push(
+          context,
+          new MaterialPageRoute(builder: (context) => new ModalSourceScreen())
         );
         break;
     }
