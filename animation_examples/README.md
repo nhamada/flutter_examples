@@ -1,8 +1,7 @@
 # animation_examples
+Flutter example codes for animation.
 
-A new Flutter project.
+Refs: [Cookbook](https://flutter.io/cookbook/)
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+- [Fade a Widget in and out](https://flutter.io/cookbook/animation/opacity-animation/)
+  - [Code](./lib/fadainout)
