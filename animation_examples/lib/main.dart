@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:animation_examples/fadainout/fadainout.dart';
+import 'package:animation_examples/fadeinout/fadeinout.dart';
 
 void main() => runApp(new MyApp());
 
