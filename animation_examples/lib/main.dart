@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:animation_examples/fadainout/fadainout.dart';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -22,7 +24,7 @@ enum _AnimationExamples {
 String _screenName(_AnimationExamples example) {
   switch (example) {
     case _AnimationExamples.fadeInOut:
-      return '';
+      return 'Fade a Widget in and out';
   }
   return '';
 }
@@ -30,7 +32,7 @@ String _screenName(_AnimationExamples example) {
 Widget _screen(_AnimationExamples example) {
   switch (example) {
     case _AnimationExamples.fadeInOut:
-      return null;
+      return new FadeInOutScreen();
   }
   return null;
 }
